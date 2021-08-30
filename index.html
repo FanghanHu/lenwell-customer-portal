@@ -105,8 +105,10 @@
             <div class="input-group-prepend">
               <span class="input-group-text">Description</span>
             </div>
-            <textarea onchange="description=this.value; $('#description-output').text(this.value.length<20?this.value:this.value.substring(0,20) +'...'); showStep($contact)" class="form-control" aria-label="With textarea"></textarea>
+            <textarea onchange="description=this.value; $('#description-output').text(this.value.length<20?this.value:this.value.substring(0,20) +'...'); showStep($contact);" class="form-control" aria-label="With textarea"></textarea>
+            <button class="btn btn-lg btn-primary input-group-append" onclick="showStep($contact)">Next</button>
           </div>
+          
     </div>
     <h3 onclick="showStep($contact)">Contact: <span class="text-muted" id="contact-output"></span></h3>
     <div id="contact" class="collapse">
@@ -114,7 +116,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">First Name</span>
             </div>
-            <input onChange="firstName=this.value; showContact()" type="text" class="form-control" placeholder="first name" aria-label="model">
+            <input onChange="firstName=this.value; showContact()" type="text" class="form-control" placeholder="first name" aria-label="model" autofocus>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -363,6 +365,7 @@
                             <span class="input-group-text">Model</span>
                         </div>
                         <input onChange="model=this.value; $('#model-output').text(this.value); showStep($color)" type="text" class="form-control" placeholder="other model" aria-label="model">
+                        <button class="btn btn-primary input-group-append" onclick="showStep($color)">Next</button>
                     </div>
                     `
                 )
