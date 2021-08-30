@@ -147,7 +147,7 @@
         <button class="btn btn-lg btn-success" onclick="submitLead()">Submit</button>
     </div>
     <div id="thanks" class="collapse">
-        <h3 class="text-success">Order has been submitted, Thank you for your business!</h3>
+        <h3 class="text-success">Order has been submitted, your reference number is: <span id="ref-number" class="text-warnning">#######</span>, Thank you for your business!</h3>
     </div>
 
 
@@ -446,7 +446,8 @@
                     ticket_description: description,
                     ticket_problem_type: service,
                     ticket_subject: `${model} - ${service}`
-                }, () => {
+                }, res => {
+                    $("#ref-number").text(res.lead.id);
                     showStep($thanks);
                 })
             }
