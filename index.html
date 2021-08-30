@@ -96,6 +96,7 @@
     </div>
     <h3 onclick="showStep($service)">Service: <span class="text-muted" id="service-output"></span></h3>
     <div id="service" class="collapse">
+        <h5 class="text-muted">If the service or combo you need is not in this list, please choose "Other" and write your needs in the description.</h5>
         <div id="services" class="d-flex flex-wrap">
         </div>
     </div>
@@ -112,6 +113,7 @@
     </div>
     <h3 onclick="showStep($contact)">Contact: <span class="text-muted" id="contact-output"></span></h3>
     <div id="contact" class="collapse">
+        <h5 class="text-muted">Please make sure your contact information is correct,</h5>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">First Name</span>
@@ -143,6 +145,9 @@
             <input onChange="email=this.value; showContact()" type="text" class="form-control" placeholder="name@mail.com" aria-label="model">
         </div>
         <button class="btn btn-lg btn-success" onclick="submitLead()">Submit</button>
+    </div>
+    <div id="thanks" class="collapse">
+        <h3 class="text-success">Order has been submitted, Thank you for your business!</h3>
     </div>
 
 
@@ -323,6 +328,7 @@
         const $service = $("#service");
         const $description = $("#description");
         const $contact = $("#contact");
+        const $thanks = $("#thanks");
 
         let model;
         let color;
@@ -441,7 +447,7 @@
                     ticket_problem_type: service,
                     ticket_subject: `${model} - ${service}`
                 }, () => {
-                    alert("Submitted, Please mention your contact information when you bring us the device, or include a piece of paper of your contact informaiton in the package if you plan to mail it.");
+                    showStep($thanks);
                 })
             }
         }
